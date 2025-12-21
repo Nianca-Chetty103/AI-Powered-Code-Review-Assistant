@@ -1,5 +1,5 @@
-# AI-Powered-Code-Review-Assistant
-I built a tool to help me whilst I am coding Projects as to be software engineer soon.
+# AI-Powered-Code-Review-Assistant 👋
+I built a tool to help me whilst I am coding Projects.
 
 ## What I learnt 
 
