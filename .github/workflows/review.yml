@@ -6,16 +6,18 @@ jobs:
   run-review:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      # Step 1: Checkout code
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      # Step 2: Setup Python and install dependencies
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # Step 3: Install pylint (single step, clean)
       - name: Install pylint
-        run: pip install pylint
+        run: pip install --upgrade pylint
 
-      - name: Run pylint on code
+      # Step 4: Run pylint on the code
+      - name: Lint code with pylint
         run: pylint src/main.py
