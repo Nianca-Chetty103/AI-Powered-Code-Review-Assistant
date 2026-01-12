@@ -9,6 +9,8 @@ I built a tool to help me whilst I am coding Projects and improving my thought p
 - make coding more efficient and better to use
 
 ## Tech Stack
+- python programming
+- github with git commands
 
 ## Features 
 - Finds bugs and errors in my code as I'm programming
