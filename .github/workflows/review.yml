@@ -28,7 +28,7 @@ jobs:
       # 5. Run Bandit (security)
       - name: Run Bandit
         run: |
-          bandit -r src -f txt -o bandit_report.txt || true
+          bandit -r src -f txt -o requiremnets.txt || true
 
       # 6. Run AI review
       - name: Run AI Code Review
