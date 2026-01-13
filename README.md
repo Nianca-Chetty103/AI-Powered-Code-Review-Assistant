@@ -2,6 +2,8 @@
 I built a tool to help me whilst I am coding Projects and improving my thought process when thinking about building.
 
 ## What I learnt 
+- Learnt the Github environment a little bit more.
+- using git commands
 
 ## How does it help the community
 - help with improving coding
