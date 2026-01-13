@@ -5,19 +5,34 @@ on: [push]
 jobs:
   run-review:
     runs-on: ubuntu-latest
+
     steps:
-      # Step 1: Checkout code
+      # 1. Checkout repository
       - uses: actions/checkout@v3
 
-      # Step 2: Setup Python and install dependencies
+      # 2. Setup Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      # Step 3: Install pylint (single step, clean)
-      - name: Install pylint
-        run: pip install --upgrade pylint
+      # 3. Install tools
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pylint bandit openai
 
-      # Step 4: Run pylint on the code
-      - name: Lint code with pylint
-        run: pylint src/main.py || true
+      # 4. Run pylint
+      - name: Run pylint
+        run: |
+          pylint src/main.py --output-format=text > pylint_report.txt || true
+
+      # 5. Run Bandit (security)
+      - name: Run Bandit
+        run: |
+          bandit -r src -f txt -o bandit_report.txt || true
+
+      # 6. Run AI review
+      - name: Run AI Code Review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python ai_review.py
