@@ -1,9 +1,18 @@
-def add_numbers(a, b):
-    c = a + b
-    return c
+from fastapi import FastAPI, Request
+from dotenv import load_dotenv
+from app.github import handle_pull_request
 
-def unused_function():
-    x = 10  # pylint should warn about this
+load_dotenv()
 
-print(add_numbers(2, 3))
+app = FastAPI()
+
+@app.post("/webhook")
+async def github_webhook(request: Request):
+    payload = await request.json()
+
+    if "pull_request" in payload:
+        await handle_pull_request(payload)
+
+    return {"status": "ok"}
+
 
