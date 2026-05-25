@@ -9,6 +9,7 @@ I building a tool to help me whilst I am coding Projects and improving my though
 - help with improving coding
 - improves learning to code
 - make coding more efficient and better to use
+- Able to track bugs and prioritise the severity of damage the bugs can cause.
 
 ## Tech Stack
 - python programming
